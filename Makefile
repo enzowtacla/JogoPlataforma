@@ -11,22 +11,20 @@ OBJ_FILES := $(patsubst src/%.cpp,$(OBJ_DIR)/%.o,$(CPP_FILES))
 # Regra para criar o diretório de objetos
 # SEMPRE QUE FOR ADCIONAR MAIS UM INCLUDE LISTAR AQUI
 # EXEMPLO:
-# $(OBJ_DIR)/%.o: src/%.cpp
-#	g++ -c -Iinclude \
-#	-ISFML/include \
-#	-Iinclude/Entidades \
-#	-Iinclude/Entidades/Personagens \
-#	-Iinclude/Entidades/Inimigos \
-#	-Iinclude/Entidades/Projetil \
-#	-Iinclude/Entidades/Obstaculos \
-#	$< -o $@
+ $(OBJ_DIR)/%.o: src/%.cpp
+	g++ -c -Iinclude \
+	-ISFML/include \
+	-Iinclude/Entities \
+	-Iinclude/Entities/Characters \
+	-ISFML/include/Managers \
+	$< -o $@
 
 
 # Compilação dos arquivos .cpp para arquivos .o 
-$(OBJ_DIR)/%.o: src/%.cpp
-	g++ -c	-Iinclude \
-	-ISFML/include \
-    $< -o $@
+#$(OBJ_DIR)/%.o: src/%.cpp
+#	g++ -c	-Iinclude \
+#	-ISFML/include \
+# $< -o $@
 
 # Regra padrão para construir o executável
 all: clean compile link
