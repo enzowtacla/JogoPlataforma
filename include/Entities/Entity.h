@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SFML/Graphics.hpp"
+#include "Managers/Graphic.h"
 
 namespace Entities
 {
@@ -13,6 +13,8 @@ namespace Entities
     class Entity
     {
     private:
+        Managers::Graphic* pGraphic;
+        sf::RectangleShape body;
         sf::Vector2f position;
         sf::Vector2f size;
         ID id;
@@ -24,6 +26,7 @@ namespace Entities
         sf::Vector2f getPosition() const;
         sf::Vector2f getSize() const;
         ID getID() const;
+        sf::RectangleShape getBody() const;
         virtual void render();
         virtual void update(float dt) = 0;
         virtual void initialize() = 0;
